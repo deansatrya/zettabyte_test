@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FLEXBOX</title>
+<style>
+body {
+	background: hsl(0, 0%, 90%);
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: #404040;
+	font-family: 'Comfortaa', Arial, sans-serif;
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+  font-family: 'Patua One', serif;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: 16px;
+  color: #007489;
+}
+
+p {
+	margin-bottom: 24px;
+  color: #898989;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 15px;
+	font-size: 24px;
+	line-height: 25px;
+	margin-bottom: 25px;
+	max-width: 100%;
+	overflow: auto;
+	padding: 25px;
+}
+
+code,
+kbd,
+tt,
+var {
+	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+sup,
+sub {
+	font-size: 75%;
+	height: 0;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	bottom: 1ex;
+}
+
+sub {
+	top: .5ex;
+}
+
+small {
+	font-size: 75%;
+}
+
+big {
+	font-size: 125%;
+}
+
+.masthead {
+	background-color: #005b75;
+}
+
+.masthead p, .masthead p a {
+  color: white;
+}
+
+.site-title {
+	color: white;
+}
+
+img {
+	display: block;
+	border: 0;
+	width: 100%;
+	height: auto;
+}
+
+
+.card {
+	background: white;
+	margin-bottom: 2em;	
+}
+
+.card a {
+	color: black;
+	text-decoration: none;
+}
+
+.card a:hover {
+	box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
+}
+
+.card-content {
+	padding: 1.4em;
+}
+
+.card-content h2 {
+	margin-top: 0;
+	margin-bottom: .5em;
+	font-weight: bold;
+}
+
+.card-content p {
+	font-size: 80%;
+}
+
+/* Flexbox stuff */
+
+.cards {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+
+.card {
+	flex: 0 1 24%;
+}
+
+.hover_bkgr_fricc{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+.hover_bkgr_fricc .helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr_fricc > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+.popupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.popupCloseButton:hover {
+    background-color: #ccc;
+}
+.trigger_popup_fricc {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+    <main class="main-area">
+        
+        <div class="centered">
+
+            <section class="cards">
+                
+                <article class="card">
+                    <a href="#">
+                        <picture class="thumbnail">
+                            <img src="http://www.abbeyjfitzgerald.com/wp-content/uploads/2017/02/image-example-01.jpg" >
+                        </picture>
+                        <div class="card-content">
+                            <h2>FOREST</h2>
+                            <p>A forest is a piece of land with many trees. Forests are important and grow in many places around the world. </p>
+							<a class="trigger_popup_fricc" id="trigger1">EXPLORE</a>
+						</div>
+                    </a>
+					
+                </article>
+
+                <article class="card">
+                    <a href="#">
+                        <picture class="thumbnail">
+                            <img src="http://www.abbeyjfitzgerald.com/wp-content/uploads/2017/02/image-example-02.jpg" >
+                        </picture>
+                        <div class="card-content">
+                            <h2>MOUNTAIN</h2>
+                            <p>A mountain is an elevated portion of the Earth's crust, generally with steep sides that show significant exposed bedrock.</p>
+							<a class="trigger_popup_fricc" id="trigger2">EXPLORE</a>
+						</div>
+                    </a>
+                </article>
+
+                <article class="card">
+                    <a href="#">
+                        <picture class="thumbnail">
+                            <img src="http://www.abbeyjfitzgerald.com/wp-content/uploads/2017/02/image-example-03.jpg" >
+                        </picture>
+                        <div class="card-content">
+                            <h2>SEA</h2>
+                            <p>The sea, connected as the world ocean or simply the ocean, is the body of salty water that covers approximately 71 percent of the Earth's surface. </p>
+							<a class="trigger_popup_fricc" id="trigger3">EXPLORE</a>
+							
+						</div>
+                    </a>
+                </article>
+
+                <article class="card">
+                    <a href="#">
+                        <picture class="thumbnail">
+                            <img src="http://www.abbeyjfitzgerald.com/wp-content/uploads/2017/02/image-example-04.jpg" >
+                        </picture>
+                        <div class="card-content">
+                            <h2>CITY</h2>
+                            <p>A city is an area in which a large number of people live fairly close together.</p>
+							<a class="trigger_popup_fricc" id="trigger4">EXPLORE</a>
+                        </div>
+                    </a>
+                </article>
+            </section>
+			<div class="hover_bkgr_fricc" id="popup1">
+				<span class="helper"></span>
+				<div>
+					<div class="popupCloseButton" id="button1">&times;</div>
+					<p>They are an ecosystem which includes many plants and animals.<br />Many animals live in forests and need them to survive. Forests contain 80% of the Earth's plant biomass.</p>
+				</div>
+			</div>
+			
+			<div class="hover_bkgr_fricc" id="popup2">
+				<span class="helper"></span>
+				<div>
+					<div class="popupCloseButton" id="button2">&times;</div>
+					<p>A mountain is an elevated portion of the Earth's crust.<br />Generally with steep sides that show significant exposed bedrock.</p>
+				</div>
+			</div>
+			
+			<div class="hover_bkgr_fricc" id="popup3">
+				<span class="helper"></span>
+				<div>
+					<div class="popupCloseButton" id="button3">&times;</div>
+					<p>The word sea is also used to denote second-order sections of the sea, such as the Mediterranean Sea, as well as certain large, entirely landlocked, saltwater lakes, such as the Caspian Sea.</p>
+				</div>
+			</div>
+			
+			<div class="hover_bkgr_fricc" id="popup4">
+				<span class="helper"></span>
+				<div>
+					<div class="popupCloseButton" id="button4">&times;</div>
+					<p>Cities usually have their own separate governments and systems for maintaining and providing utilities and transportation.</p>
+				</div>
+			</div>
+			
+        </div>
+    </main>
+</div>
+</body>
+<footer>
+	<script src="jquery-3.6.0.min.js"></script>
+	<script type="application/javascript">
+		$("#trigger1").click(function(){
+		   $('#popup1').show();
+		});
+		$('#popup1').click(function(){
+			$('#popup1').hide();
+		});
+		$('#Button1').click(function(){
+			$('#popup1').hide();
+		});	
+		
+		$("#trigger2").click(function(){
+		   $('#popup2').show();
+		});
+		$('#popup2').click(function(){
+			$('#popup2').hide();
+		});
+		$('#Button2').click(function(){
+			$('#popup2').hide();
+		});	
+		
+		$("#trigger3").click(function(){
+		   $('#popup3').show();
+		});
+		$('#popup3').click(function(){
+			$('#popup3').hide();
+		});
+		$('#Button3').click(function(){
+			$('#popup3').hide();
+		});	
+		
+		$("#trigger4").click(function(){
+		   $('#popup4').show();
+		});
+		$('#popup4').click(function(){
+			$('#popup4').hide();
+		});
+		$('#Button4').click(function(){
+			$('#popup4').hide();
+		});	
+		
+	</script>
+</footer>
+</html>
